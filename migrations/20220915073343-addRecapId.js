@@ -15,8 +15,7 @@ module.exports = {
           tableName: 'Recaps'
         },
         key: "id"
-      },
-      allowNull: false
+      }
     })
   },
 

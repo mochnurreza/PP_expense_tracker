@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h4>Selamat datang</h4>
+    <h5>Mari mulai langkah anda dengan membuat rekap keuangan pemasukan dan pengeluaran</h5>
+    <form action="/add" method="get">
+        <button type="submit">Rekapan Baru</button>
+    </form>
+    <br>
+    <% if (!user.Profile) { %>
+     <h3>Nice to meet you, introduce your self with edit your profile</h3>
+     <form action="/editProfile/<%= user.id %>" method="get">
+        <button type="submit">Edit profile</button>
+     </form>
+    <% } %>
+</body>
+</html>

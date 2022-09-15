@@ -2,6 +2,7 @@
 const {
   Model
 } = require('sequelize');
+const { options } = require('../router');
 module.exports = (sequelize, DataTypes) => {
   class Profile extends Model {
     /**
@@ -24,5 +25,8 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'Profile',
   });
+  Profile.beforeCreate((app, options) => {
+    app.money = 0
+  })
   return Profile;
 };

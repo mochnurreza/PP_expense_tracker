@@ -14,11 +14,13 @@ router.use(function(req, res, next){
         next()
     }
 })
-router.get('/', Controller.home)
-router.get('/addForm', Controller.addForm)
-router.get('/edit/:id', Controller.editForm)
+router.get('/:id', Controller.home)
+router.get('/:id/addForm',Controller.addForm)
+router.post('/:id/addForm', Controller.addUpdate)
+router.get('/:id/delete',Controller.destroy)
+router.get('/profile/:id', Controller.profileHome)
 router.get('/editProfile/:profile', Controller.editForm)
-router.post('/editProfile/:profile', Controller.editProfile)
+router.post('/editProfile/:profile', Controller.editUpdate)
 
 
 

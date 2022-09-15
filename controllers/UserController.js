@@ -13,10 +13,20 @@ class UserController {
     }
 
     static postRegister(req, res){
-        const {username, password, email} = req.body
+        const {username, password, email, age, name, phone} = req.body
         User.create({username, password, email})
-        .then(newUser => {
-            res.redirect('/login')
+        .then(result => {
+            console.log(result)
+            let options = {
+                name : name,
+                phone : phone,
+                age : age,
+                UserId : result.id
+            }
+            Profile.create(options)
+                .then(()=> {
+                    res.redirect('/login')
+                })
         }).catch(err => res.send(err))
     }
 
@@ -36,7 +46,7 @@ class UserController {
                 if(isValid){
                     // console.log(user)
                     req.session.userId = user.id
-                    res.redirect(`/`)
+                    res.redirect(`/${user.id}`)
                 } else {
                     const error = 'invalid username/password'
                     res.redirect(`/login?err=${error}`)

@@ -10,27 +10,23 @@
     <%- include('./partials/_header.ejs')%>
     <div class="container border" style="width: 20rem;border-radius: 20px;padding:20px;margin-top: 1rem;">
       <h5 class="text-center">Add expense</h5>
-        <form action="/addExpense" method="post">
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Type</label>
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>Open this select menu</option>
-                    <option value="Investment">Investment</option>
-                    <option value="Salary">Salary</option>
-                    <option value="Bills">Bills</option>
-                </select>
-            </div>
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Status</label>
-                <select class="form-select" aria-label="Default select example" name="status">
-                    <option selected>Open this select menu</option>
-                    <option value="Income">Income</option>
-                    <option value="Expense">Expense</option>                   
-                </select>
-            </div>
+        <form action="/editProfile/<%= result.id %>" method="post">
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Name</label>
+            <input type="text" value="<%= result.name %>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="name">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Age</label>
+            <input type="number" value="<%= result.age %>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="age">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Phone Number</label>
+            <input type="text" value="<%= result.phone %>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="phone">
+          </div>
+          <input hidden type="number" name="UserId" value="<%= result.id %>">
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Amount</label>
-                <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="money">
+                <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="<%= result.money %>" name="money">
             </div>
             <button type="submit" class="btn btn-primary">Tambah</button>
           </form>

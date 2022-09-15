@@ -14,10 +14,15 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       Profile.belongsTo(models.User, {foreignKey: 'UserId'})
     }
+    get formattedMoney() {
+      const uang = `Rp. ${this.money}` 
+      return uang
+    }
+    
   }
   Profile.init({
     name: DataTypes.STRING,
-    phone: DataTypes.INTEGER,
+    phone: DataTypes.STRING,
     money: DataTypes.INTEGER,
     age: DataTypes.INTEGER,
     UserId: DataTypes.INTEGER

@@ -10,11 +10,11 @@
     <%- include('./partials/_header.ejs')%>
     <div class="container border" style="width: 20rem;border-radius: 20px;padding:20px;margin-top: 1rem;">
       <h5 class="text-center">Add expense</h5>
-        <form action="/addExpense" method="post">
+        <form action="/<%= id %>/addForm" method="post">
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Type</label>
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>Open this select menu</option>
+                <select required class="form-select" aria-label="Default select example" name="type">
+                    <option disabled selected>Open this select menu</option>
                     <option value="Investment">Investment</option>
                     <option value="Salary">Salary</option>
                     <option value="Bills">Bills</option>
@@ -22,12 +22,16 @@
             </div>
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Status</label>
-                <select class="form-select" aria-label="Default select example" name="status">
-                    <option selected>Open this select menu</option>
+                <select required class="form-select" aria-label="Default select example" name="status">
+                    <option disabled selected>Open this select menu</option>
                     <option value="Income">Income</option>
                     <option value="Expense">Expense</option>                   
                 </select>
             </div>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Description</label>
+              <textarea name="description" id="exampleInputEmail1" cols="30" rows="10"></textarea>
+          </div>
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Amount</label>
                 <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="money">

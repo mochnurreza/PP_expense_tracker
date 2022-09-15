@@ -14,11 +14,21 @@ module.exports = (sequelize, DataTypes) => {
       Recap.belongsTo(models.User, {foreignKey: 'UserId'})
       Recap.hasMany(models.Category, {foreignKey: 'RecapId'})
     }
+    get formattedDate() {
+      return this.createdAt.toLocaleString('id-ID', {
+        weekday: "long",
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      })
+    }
   }
   Recap.init({
     status: DataTypes.STRING,
     UserId: DataTypes.INTEGER,
-    money: DataTypes.INTEGER
+    money: DataTypes.INTEGER,
+    type: DataTypes.STRING,
+    Description: DataTypes.TEXT
   }, {
     sequelize,
     modelName: 'Recap',

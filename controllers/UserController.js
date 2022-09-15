@@ -5,11 +5,13 @@ const { use } = require('../router')
 
 class UserController {
     static registerForm(req, res){
-        res.render('auth/register')
+        let err = req.query.Error
+        res.render('auth/register', {err})
     }
 
     static loginForm(req, res){
-        res.render('auth/login')
+        let err = req.query.err
+        res.render('auth/login', {err})
     }
 
     static postRegister(req, res){
@@ -27,7 +29,15 @@ class UserController {
                 .then(()=> {
                     res.redirect('/login')
                 })
-        }).catch(err => res.send(err))
+                .catch(() => {
+                    const error = `Please insert the require form for registration`
+                    res.redirect(`/register?Error=${error}`)
+                })
+        })
+        .catch(() => {
+            const error = `Please insert the require form for registration`
+            res.redirect(`/register?Error=${error}`)
+        })
     }
 
     static postLogin(req, res){

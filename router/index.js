@@ -4,6 +4,7 @@ const Controller = require('../controllers')
 router.get('/', Controller.home)
 // auth
 router.get('/home')
+router.get('/profileHome/:UserId', Controller.profileHome)
 router.get('/register', UserController.registerForm)
 router.post('/register', UserController.postRegister)
 router.get('/login', UserController.loginForm)

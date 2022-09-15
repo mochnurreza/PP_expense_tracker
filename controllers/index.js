@@ -3,6 +3,9 @@ class Controller {
     static home(req, res) {
         res.render('home')
     }
+    static profileHome(req, res){
+        res.render('profileHome')
+    }
     static editForm(req, res) {
         let options = {
             include : User

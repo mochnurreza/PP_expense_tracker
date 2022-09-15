@@ -1,0 +1,13 @@
+[
+    {
+        "type" : "Investment"
+    },
+
+    {
+        "type" : "Saving"
+    },
+
+    {
+        "type" : "Salary" 
+    }
+]

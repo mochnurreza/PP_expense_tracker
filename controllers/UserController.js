@@ -35,7 +35,8 @@ class UserController {
                 const isValid = bycript.compareSync(password, user.password)
                 if(isValid){
                     // console.log(user)
-                    res.redirect(`/profileHome/${userId}`)
+                    req.session.userId = user.id
+                    res.redirect(`/`)
                 } else {
                     const error = 'invalid username/password'
                     res.redirect(`/login?err=${error}`)

@@ -4,7 +4,15 @@ class Controller {
         res.render('home')
     }
     static profileHome(req, res){
-        res.render('profileHome')
+        res.render('profile')
+    }
+
+    static addForm(req,res){
+        res.render('addForm')
+    }
+
+    static editForm(req, res){
+        res.render('editForm')
     }
     static editForm(req, res) {
         let options = {

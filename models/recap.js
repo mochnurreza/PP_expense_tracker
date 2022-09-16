@@ -2,6 +2,7 @@
 const {
   Model
 } = require('sequelize');
+const date = require('../helper');
 module.exports = (sequelize, DataTypes) => {
   class Recap extends Model {
     /**
@@ -15,12 +16,7 @@ module.exports = (sequelize, DataTypes) => {
       Recap.hasMany(models.Category, {foreignKey: 'RecapId'})
     }
     get formattedDate() {
-      return this.createdAt.toLocaleString('id-ID', {
-        weekday: "long",
-        year: "numeric",
-        month: "long",
-        day: "numeric",
-      })
+      return date(this.createdAt)
     }
   }
   Recap.init({

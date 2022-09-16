@@ -42,7 +42,7 @@ module.exports = (sequelize, DataTypes) => {
       validate : {
         notEmpty : {
           msg : "Email cannot be empty"
-        }
+        },
       }
     }
   }, {
